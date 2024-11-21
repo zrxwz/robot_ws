@@ -1,0 +1,29 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/zhurui/cartographer_ws/cartographer_detailed_comments_ws/install_isolated/include/**",
+        "/home/zhurui/robot_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/zhurui/robot_ws/src/Azure_Kinect_ROS_Driver/include/**",
+        "/home/zhurui/robot_ws/src/hector_slam/hector_geotiff/include/**",
+        "/home/zhurui/robot_ws/src/hector_slam/hector_map_tools/include/**",
+        "/home/zhurui/robot_ws/src/hector_slam/hector_mapping/include/**",
+        "/home/zhurui/robot_ws/src/hector_slam/hector_marker_drawing/include/**",
+        "/home/zhurui/robot_ws/src/LeGO-LOAM/LeGO-LOAM/include/**",
+        "/home/zhurui/robot_ws/src/pointcloud_to_laserscan_melodic/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

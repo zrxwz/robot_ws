@@ -1,0 +1,8 @@
+<launch>
+
+  <include file="$(find rslidar_sdk)/launch/start2.launch" />
+
+  <include file="$(find pointcloud_to_laserscan)/launch/point_to_scan.launch" />
+
+</launch>
+

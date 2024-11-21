@@ -1,0 +1,7 @@
+<launch>
+
+  <include file="$(find rs_to_velodyne)/launch/rs_to_velodyne.launch" />
+
+  <include file="$(find lego_loam)/launch/run2.launch" />
+
+</launch>

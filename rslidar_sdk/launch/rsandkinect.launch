@@ -1,0 +1,16 @@
+<launch>
+  <!-- 启动雷达 -->
+  <include file="$(find rslidar_sdk)/launch/start2.launch" />
+  
+  <!-- 启动 Azure Kinect 相机 -->
+  <include file="$(find azure_kinect_ros_driver)/launch/driver.launch" />
+
+  <!-- 发布静态坐标变换：雷达到相机 -->
+  <node name="static_transform_publisher" pkg="tf" type="static_transform_publisher" args="0.0460 -0.0653 -0.1610 -0.7073 -0.0005 -0.7071 0.0001 rgb_camera_link rslidar 100"/>
+
+  <node name="static_transform_publisher_camera_base_to_base_link" pkg="tf" type="static_transform_publisher"
+        args="-0.2 0.0 -0.2 0.0 0.0 0.0 1.0 camera_base base_link 100" />
+  <!-- 如果需要，可以取消注释以下部分来启动其他相关节点 -->
+  <!-- <include file="$(find rs_to_velodyne)/launch/rs_to_velodyne.launch" /> -->
+  <!-- <include file="$(find sys_time)/launch/sys_time.launch" /> -->
+</launch>

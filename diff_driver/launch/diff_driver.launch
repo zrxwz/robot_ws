@@ -1,0 +1,8 @@
+<launch>
+  <!-- 启动 diff_drive_node 节点 -->
+  <node name="diff_drive_node" pkg="diff_driver" type="diff_driver_node.py" output="screen"/>
+
+    <node name="target_follow_node" pkg="diff_driver" type="target_follow_node.py" output="screen" />
+
+</launch>
+

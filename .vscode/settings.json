@@ -1,0 +1,14 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/zhurui/yolo_ws/devel/lib/python3/dist-packages",
+        "/home/zhurui/cartographer_ws/cartographer_detailed_comments_ws/install_isolated/lib/python3/dist-packages",
+        "/home/zhurui/robot_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/zhurui/yolo_ws/devel/lib/python3/dist-packages",
+        "/home/zhurui/cartographer_ws/cartographer_detailed_comments_ws/install_isolated/lib/python3/dist-packages",
+        "/home/zhurui/robot_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
+}

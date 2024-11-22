@@ -1,0 +1,16 @@
+<launch>
+    <!-- 定义动态参数 -->
+    <arg name="yolo_model_path" default="/home/zhurui/11mycode/YOLOV8/ultralytics/yolov8n.pt" />
+    <arg name="target_class" default="person" />
+    <arg name="conf_thres" default="0.5" />
+    <arg name="device" default="0" />
+
+    <!-- 启动目标检测节点 -->
+    <node pkg="diff_driver" type="target_detection_node.py" name="target_detection_node" output="screen">
+        <!-- 设置模型路径、目标类别、置信度阈值和设备参数 -->
+        <param name="yolo_model_path" value="$(arg yolo_model_path)" />
+        <param name="target_class" value="$(arg target_class)" />
+        <param name="conf_thres" value="$(arg conf_thres)" />
+        <param name="device" value="$(arg device)" />
+    </node>
+</launch>

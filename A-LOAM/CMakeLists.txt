@@ -85,7 +85,9 @@ find_package(catkin REQUIRED COMPONENTS
 #find_package(Eigen3 REQUIRED)
 find_package(PCL REQUIRED)
 find_package(OpenCV REQUIRED)
+set(Ceres_DIR "/home/zhurui/dependencies/A-LOAM/ceres-solver/install/lib/cmake/Ceres")
 find_package(Ceres REQUIRED)
+
 
 include_directories(
   include
@@ -94,7 +96,7 @@ include_directories(
   ${CERES_INCLUDE_DIRS}
   ${OpenCV_INCLUDE_DIRS}
 )
-
+link_directories("/home/zhurui/dependencies/A-LOAM/ceres-solver/install/lib")
 catkin_package(
   CATKIN_DEPENDS geometry_msgs nav_msgs roscpp rospy std_msgs
   DEPENDS EIGEN3 PCL 
@@ -102,6 +104,7 @@ catkin_package(
 )
 
 # 定义并链接可执行文件
+
 add_executable(ascanRegistration src/scanRegistration.cpp)
 target_link_libraries(ascanRegistration ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 

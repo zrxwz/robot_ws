@@ -25,6 +25,7 @@ find_package(catkin REQUIRED COMPONENTS
 set(CMAKE_PREFIX_PATH "/usr/include/opencv4") 
 find_package(OpenCV 4.0 QUIET)
 
+set(Ceres_DIR "/home/zhurui/dependencies/gtsam-4.0.0-alpha2/install/lib/cmake/GTSAM")
 find_package(GTSAM REQUIRED QUIET)
 find_package(PCL REQUIRED QUIET)
 find_package(OpenCV REQUIRED QUIET)
@@ -43,7 +44,7 @@ include_directories(
 	${OpenCV_INCLUDE_DIRS}
 	${GTSAM_INCLUDE_DIR}
 )
-
+link_directories("/home/zhurui/dependencies/gtsam-4.0.0-alpha2/install/lib")
 link_directories(
 	include
 	${OpenCV_LIBRARY_DIRS}

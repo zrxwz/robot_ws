@@ -1,0 +1,9 @@
+<launch>
+    <!-- 启动通用转换节点 -->
+    <node pkg="your_package" type="generic_coordinate_transformer.py" name="coordinate_transformer">
+        <param name="input_topic" value="/target_position_rgb"/>
+        <param name="output_topic" value="/target_position_base"/>
+        <param name="source_frame" value="rgb_link"/>
+        <param name="target_frame" value="base_link"/>
+    </node>
+</launch>

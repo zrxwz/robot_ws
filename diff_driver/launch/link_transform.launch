@@ -1,9 +1,5 @@
 <launch>
-    <!-- 启动通用转换节点 -->
-    <node pkg="your_package" type="generic_coordinate_transformer.py" name="coordinate_transformer">
-        <param name="input_topic" value="/target_position_rgb"/>
-        <param name="output_topic" value="/target_position_base"/>
-        <param name="source_frame" value="rgb_link"/>
-        <param name="target_frame" value="base_link"/>
-    </node>
+  <!-- 使用 static_transform_publisher 发布从 rslidar 到 rgb_camera_link 的静态坐标变换 -->
+  <node pkg="tf" type="static_transform_publisher" name="rslidar_to_rgb_camera" 
+        args="0.1681 -0.0782 -0.0754 -0.5043 -0.0887 -0.6942 0.5131 rslidar rgb_camera_link 100" />
 </launch>

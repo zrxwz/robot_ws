@@ -1,0 +1,26 @@
+# Topics
+camera_topic: "/rgb/image_raw"
+camera_info: "/rgb/camera_info"
+lidar_topic: "/rslidar_points"
+
+# Dynamic rqt_reconfigure default bounds
+feature_extraction:
+  x_min: -10.0
+  x_max: 10.0
+  y_min: -8.0
+  y2_max: 8.0
+  z_min: -5.0
+  z_max: 5.0
+  
+# Properties of chessboard calibration target
+chessboard:
+  pattern_size:
+    height: 8
+    width: 5  
+  square_length: 43                
+  board_dimension:
+    width: 500
+    height: 500                                                                                                
+  translation_error:
+    x: 0
+    y: 0

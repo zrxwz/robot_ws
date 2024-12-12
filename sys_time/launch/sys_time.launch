@@ -1,4 +1,0 @@
-<launch>
-    <node pkg="sys_time" type="sys_time.cpp" name="sys_time" output="screen" />
-</launch>
-

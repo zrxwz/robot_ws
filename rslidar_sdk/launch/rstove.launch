@@ -1,8 +1,0 @@
-<launch>
-
-  <include file="$(find rslidar_sdk)/launch/start2.launch" />
-
-  <include file="$(find rs_to_velodyne)/launch/rs_to_velodyne.launch" />
-
-</launch>
-

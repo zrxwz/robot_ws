@@ -1,0 +1,12 @@
+<launch>
+  <!-- Launch sync_timestamp_node -->
+  <node name="sync_timestamp_node" pkg="sync_timestamp" type="sync_timestamp_node" output="screen">
+    <!-- 参数和配置项，如果有的话可以在这里设置 -->
+    <!-- 例如，如果你有参数文件，可以像下面这样加载 -->
+    <!-- <param name="some_param" value="some_value" /> -->
+    
+    <!-- 这里如果你想指定不同的话题，可以通过 remap 指令进行话题重映射 -->
+    <!-- <remap from="original_topic" to="new_topic" /> -->
+  </node>
+</launch>
+

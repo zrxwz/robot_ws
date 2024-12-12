@@ -1,0 +1,6 @@
+<launch>
+  <param name="use_sim_time" value="true" />
+  <!-- 使用 static_transform_publisher 发布从 rslidar 到 rgb_camera_link 的静态坐标变换 -->
+  <node pkg="tf" type="static_transform_publisher" name="velodyne_to_rgb_camera" 
+        args="0.0791 -0.0147 -0.1507 -1.5790 0.0073 -1.5565 velodyne rgb_camera_link 100" />
+</launch>

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(sys_time)
+project(sync_timestamp)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -8,10 +8,10 @@ project(sys_time)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  rospy
-  std_msgs
   message_filters
+  roscpp
+  sensor_msgs
+  tf2_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -71,7 +71,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs
+#   sensor_msgs#   tf2_msgs
 # )
 
 ################################################
@@ -105,8 +105,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES sys_time
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+#  LIBRARIES sync_timestamp
+#  CATKIN_DEPENDS message_filters roscpp sensor_msgs tf2_msgs
 #  DEPENDS system_lib
 )
 
@@ -117,13 +117,13 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-  include
+# include
   ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/sys_time.cpp
+#   src/${PROJECT_NAME}/sync_timestamp.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -134,7 +134,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/sys_time_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/sync_timestamp_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -198,51 +198,14 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_sys_time.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_sync_timestamp.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-
-# add_library(sys_time_lib
-#   ${CMAKE_CURRENT_SOURCE_DIR}/include/sys_time/sub_and_pub.h
-#   # 这里添加其他源文件，例如 .cpp 文件
-#   src/sub_and_pub.cpp
-# )
-
-# # 将src目录下的main.cpp编译成可执行文件
-# add_executable(main.cpp src/main.cpp)
-
-# # 将新库和ros库链接起来
-# target_link_libraries(sys_time_lib
-#   ${catkin_LIBRARIES}
-# )
-
-# # 将可执行文件和新库链接起来
-# target_link_libraries(main.cpp
-#   sys_time_lib
-#   ${catkin_LIBRARIES}
-# )
-
-
-add_library(sys_time_lib
-  ${CMAKE_CURRENT_SOURCE_DIR}/include/sys_time/sys_time.h
-  # 这里添加其他源文件，例如 .cpp 文件
-  src/sys_time.cpp
-)
-
-# 将src目录下的main.cpp编译成可执行文件
-add_executable(sys_time.cpp src/sys_time.cpp)
-
-# 将新库和ros库链接起来
-target_link_libraries(sys_time_lib
-  ${catkin_LIBRARIES}
-)
-
-# 将可执行文件和新库链接起来
-target_link_libraries(sys_time.cpp
-  sys_time_lib
+add_executable(sync_timestamp_node src/sync_timestamp_node.cpp)
+target_link_libraries(sync_timestamp_node
   ${catkin_LIBRARIES}
 )

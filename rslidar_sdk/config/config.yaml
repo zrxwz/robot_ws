@@ -19,12 +19,7 @@ lidar:
       use_lidar_clock: false       #True--Use the lidar clock as the message timestamp
                                    #False-- Use the system clock as the timestamp                        
       pcap_path: /home/robosense/lidar.pcap #The path of pcap file
-      # x: 0.0460
-      # y: -0.0653
-      # z: -0.1610
-      # roll: -1.4968
-      # pitch: -0.0377
-      # yaw: -1.7518
+
     ros:
       ros_frame_id: rslidar                          #Frame id of packet message and point cloud message
       ros_recv_packet_topic: /rslidar_packets          #Topic used to receive lidar packets from ROS

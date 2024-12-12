@@ -1,7 +1,7 @@
 # Topics
 camera_topic: "/rgb/image_raw"
 camera_info: "/rgb/camera_info"
-lidar_topic: "/rslidar_points"
+lidar_topic: "/velodyne_points"
 
 # Dynamic rqt_reconfigure default bounds
 feature_extraction:

@@ -4,8 +4,8 @@ Licensed under the MIT License.
 -->
 
 <launch>
-  <arg name="tf_prefix"         default="" />                       <!-- Prefix added to tf frame IDs. It typically contains a trailing '_' unless empty. -->
-  <arg name="overwrite_robot_description" default="true" />         <!-- Flag to publish a standalone azure_description instead of the default robot_descrition parameter-->
+  <arg name="tf_prefix"         default="" />                       <!-- 添加到tf框架ID的前缀，通常包含一个尾随的'_'，除非为空 -->
+  <arg name="overwrite_robot_description" default="true" />         <!-- 标志位，是否发布独立的azure_description而不是默认的robot_description参数 -->
 
   <group if="$(arg overwrite_robot_description)">
     <param name="robot_description"
@@ -25,27 +25,27 @@ Licensed under the MIT License.
     </node>
   </group>
 
-  <arg name="depth_enabled"           default="true" />           <!-- Enable or disable the depth camera -->
-  <arg name="depth_mode"              default="NFOV_UNBINNED" />  <!-- Set the depth camera mode, which affects FOV, depth range, and camera resolution. See Azure Kinect documentation for full details. Valid options: NFOV_UNBINNED, NFOV_2X2BINNED, WFOV_UNBINNED, WFOV_2X2BINNED, and PASSIVE_IR -->
-  <arg name="depth_unit"              default="16UC1" />          <!-- Depth distance units. Options are: "32FC1" (32 bit float metre) or "16UC1" (16 bit integer millimetre) -->
-  <arg name="color_enabled"           default="true" />           <!-- Enable or disable the color camera -->
-  <arg name="color_format"            default="bgra" />           <!-- The format of RGB camera. Valid options: bgra, jpeg -->
-  <arg name="color_resolution"        default="720P" />          <!-- Resolution at which to run the color camera. Valid options: 720P, 1080P, 1440P, 1536P, 2160P, 3072P -->
-  <arg name="fps"                     default="30" />              <!-- FPS to run both cameras at. Valid options are 5, 15, and 30 -->
-  <arg name="point_cloud"             default="true" />           <!-- Generate a point cloud from depth data. Requires depth_enabled -->
-  <arg name="rgb_point_cloud"         default="false" />           <!-- Colorize the point cloud using the RBG camera. Requires color_enabled and depth_enabled -->
-  <arg name="point_cloud_in_depth_frame" default="false" />        <!-- Whether the RGB pointcloud is rendered in the depth frame (true) or RGB frame (false). Will either match the resolution of the depth camera (true) or the RGB camera (false). -->
-  <arg name="required"                default="false" />          <!-- Argument which specified if the entire launch file should terminate if the node dies -->
-  <arg name="sensor_sn"               default="" />               <!-- Sensor serial number. If none provided, the first sensor will be selected -->
-  <arg name="recording_file"          default="" />               <!-- Absolute path to a mkv recording file which will be used with the playback api instead of opening a device -->
-  <arg name="recording_loop_enabled"  default="false" />          <!-- If set to true the recording file will rewind the beginning once end of file is reached -->
-  <arg name="body_tracking_enabled"           default="false" />  <!-- If set to true the joint positions will be published as marker arrays -->
-  <arg name="body_tracking_smoothing_factor"  default="0.0" />    <!-- Set between 0 for no smoothing and 1 for full smoothing -->
-  <arg name="rescale_ir_to_mono8"  default="false" />    <!-- Whether to rescale the IR image to an 8-bit monochrome image for visualization and further processing. A scaling factor (ir_mono8_scaling_factor) is applied. -->
-  <arg name="ir_mono8_scaling_factor"  default="1.0" />    <!-- Scaling factor to apply when converting IR to mono8 (see rescale_ir_to_mono8). If using illumination, use the value 0.5-1. If using passive IR, use 10. -->
-  <arg name="imu_rate_target" default="0"/>                       <!-- Desired output rate of IMU messages. Set to 0 (default) for full rate (1.6 kHz). --> 
-  <arg name="wired_sync_mode" default="0"/>                       <!-- Wired sync mode. 0: OFF, 1: MASTER, 2: SUBORDINATE. --> 
-  <arg name="subordinate_delay_off_master_usec" default="0"/>     <!-- Delay subordinate camera off master camera by specified amount in usec. --> 
+  <arg name="depth_enabled"           default="true" />           <!-- 启用或禁用深度相机 -->
+  <arg name="depth_mode"              default="NFOV_UNBINNED" />  <!-- 设置深度相机模式，影响视场、深度范围和相机分辨率。详细选项请参考Azure Kinect文档。有效选项：NFOV_UNBINNED, NFOV_2X2BINNED, WFOV_UNBINNED, WFOV_2X2BINNED, 和PASSIVE_IR -->
+  <arg name="depth_unit"              default="16UC1" />          <!-- 深度单位，选项有："32FC1"（32位浮动米）或"16UC1"（16位整数毫米） -->
+  <arg name="color_enabled"           default="true" />           <!-- 启用或禁用彩色相机 -->
+  <arg name="color_format"            default="bgra" />           <!-- RGB相机的格式。有效选项：bgra, jpeg -->
+  <arg name="color_resolution"        default="720P" />          <!-- 彩色相机运行的分辨率。有效选项：720P, 1080P, 1440P, 1536P, 2160P, 3072P -->
+  <arg name="fps"                     default="15" />              <!-- 两个相机的帧率。有效选项为5、15和30 -->
+  <arg name="point_cloud"             default="true" />           <!-- 从深度数据生成点云。需要启用深度相机 -->
+  <arg name="rgb_point_cloud"         default="false" />           <!-- 使用RGB相机为点云着色。需要启用彩色相机和深度相机 -->
+  <arg name="point_cloud_in_depth_frame" default="false" />        <!-- RGB点云是否在深度框架中渲染（true）或RGB框架中渲染（false）。会匹配深度相机的分辨率（true）或RGB相机的分辨率（false） -->
+  <arg name="required"                default="false" />          <!-- 如果节点死掉，是否终止整个启动文件 -->
+  <arg name="sensor_sn"               default="" />               <!-- 传感器序列号。如果未提供，将选择第一个传感器 -->
+  <arg name="recording_file"          default="" />               <!-- 用于播放API的.mkv录制文件的绝对路径，代替打开设备 -->
+  <arg name="recording_loop_enabled"  default="false" />          <!-- 如果设置为true，录制文件将在到达文件末尾时回到开头 -->
+  <arg name="body_tracking_enabled"           default="false" />  <!-- 如果设置为true，将发布关节位置作为标记数组 -->
+  <arg name="body_tracking_smoothing_factor"  default="0.0" />    <!-- 设置平滑因子，0表示无平滑，1表示完全平滑 -->
+  <arg name="rescale_ir_to_mono8"  default="false" />    <!-- 是否将IR图像重新缩放为8位单色图像以便于可视化和进一步处理。会应用一个缩放因子（ir_mono8_scaling_factor） -->
+  <arg name="ir_mono8_scaling_factor"  default="1.0" />    <!-- 转换IR到mono8时应用的缩放因子（参考rescale_ir_to_mono8）。如果使用光照，使用值0.5-1；如果使用被动IR，使用10 -->
+  <arg name="imu_rate_target" default="0"/>                       <!-- IMU消息的期望输出率。设置为0（默认）表示全速率（1.6 kHz） -->
+  <arg name="wired_sync_mode" default="0"/>                       <!-- 有线同步模式。0：关闭，1：主设备，2：从设备 -->
+  <arg name="subordinate_delay_off_master_usec" default="0"/>     <!-- 从设备相对于主设备的延迟，单位为微秒 -->
 
   <node pkg="azure_kinect_ros_driver" type="node" name="azure_kinect_ros_driver" output="screen" required="$(arg required)">
     <param name="depth_enabled"     type="bool"   value="$(arg depth_enabled)" />

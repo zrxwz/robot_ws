@@ -1,7 +1,7 @@
 # Topics
 camera_topic: "/rgb/image_raw"
 camera_info: "/rgb/camera_info"
-lidar_topic: "/velodyne_points"
+lidar_topic: "/rslidar_points"
 
 # Dynamic rqt_reconfigure default bounds
 feature_extraction:
@@ -15,12 +15,12 @@ feature_extraction:
 # Properties of chessboard calibration target
 chessboard:
   pattern_size:
-    height: 8
-    width: 5  
-  square_length: 43                
+    height: 6
+    width: 4
+  square_length: 74               
   board_dimension:
-    width: 500
-    height: 500                                                                                                
+    width: 420
+    height: 594                                                                                              
   translation_error:
     x: 0
     y: 0
